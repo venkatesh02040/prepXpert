@@ -2,12 +2,12 @@ import React from "react";
 
 export const Testimonials = (props) => {
   return (
-    <div>
+    <div id="testimonials">
       <div className="container">
         <div className="section-title text-center">
-          <h2  id="blogs">What our clients say</h2>
+          <h2>What our users say</h2>
         </div>
-        <div className="row">
+        <div className="row" style={{display:"flex",flexWrap:"wrap"}}>
           {props.data
             ? props.data.map((d, i) => (
                 <div key={`${d.name}-${i}`} className="col-md-4">

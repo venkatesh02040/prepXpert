@@ -15,7 +15,7 @@ export const About = (props) => {
               <p>{props.data ? props.data.paragraph : "loading..."}</p>
               <h3>Why Choose Us?</h3>
               <div className="list-style">
-                <div className="col-lg-6 col-sm-6 col-xs-12">
+                <div className="col-lg-6 col-sm-6 col-xs-12" id="abtl" style={{width:"100%"}}>
                   <ul>
                     {props.data
                       ? props.data.Why.map((d, i) => (

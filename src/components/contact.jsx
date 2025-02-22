@@ -15,11 +15,11 @@ export const Contact = (props) => {
     setState((prevState) => ({ ...prevState, [name]: value }));
   };
   const clearState = () => setState({ ...initialState });
-  
-  
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, message);    
+    console.log(name, email, message);
     emailjs
       .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
       .then(
@@ -124,29 +124,27 @@ export const Contact = (props) => {
           </div>
           <div className="col-md-12">
             <div className="row">
-              <div className="social">
-                <ul>
-                  <li>
-                    <a href={props.data ? props.data.facebook : "/"}>
-                      <i className="fa fa-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.instagram : "/"}>
-                      <i className="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.twitter : "/"}>
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.linkedin : "/"}>
-                      <i className="fa fa-linkedin"></i>
-                    </a>
-                  </li>
-                </ul>
+              <div className="social" style={{ display: "flex", flexWrap: "wrap",alignItems:"center",justifyContent:"space-around" }}>
+                <div>
+                  <a href={props.data ? props.data.facebook : "/"}>
+                    <i className="fa fa-facebook"></i>
+                  </a>
+                </div>
+                <div>
+                  <a href={props.data ? props.data.instagram : "/"}>
+                    <i className="fa fa-instagram"></i>
+                  </a>
+                </div>
+                <div>
+                  <a href={props.data ? props.data.twitter : "/"}>
+                    <i className="fa fa-twitter"></i>
+                  </a>
+                </div>
+                <div>
+                  <a href={props.data ? props.data.linkedin : "/"}>
+                    <i className="fa fa-linkedin"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

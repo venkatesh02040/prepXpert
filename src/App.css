@@ -1,18 +1,23 @@
 @media screen and (max-width: 400px) {
   #features {
     padding: 20px;
-    width: 111%;
+    width: 100%;
   }
   #about,
   #services,
   #testimonials,
-  #team,
   #contact,
   #footer {
-    width: 111%;
+    width: 100%;
   }
 
-  #portfolio {
-    width: 110%;
+}
+
+@media screen and (max-width: 340px) {
+  .intro h1{
+    font-size: 3.4rem;
+  }
+  #features h3{
+    font-size: 1.5rem;
   }
 }

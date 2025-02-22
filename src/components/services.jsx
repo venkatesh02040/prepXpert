@@ -2,7 +2,7 @@ import React from "react";
 
 export const Services = (props) => {
   return (
-    <div id="services" className="text-center">
+    <div id="services" className="text-center" style={{width:"100%"}}>
       <div className="container">
         <div className="section-title">
           <h2>Our Services</h2>
@@ -11,7 +11,7 @@ export const Services = (props) => {
             and skill enhancement resources to help candidates prepare effectively for their dream jobs.
           </p>
         </div>
-        <div className="row">
+        <div className="row" id="sd" style={{display:"flex",flexWrap:"wrap"}}>
           {props.data
             ? props.data.map((d, i) => (
               <div key={`${d.name}-${i}`} className="col-md-4">

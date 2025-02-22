@@ -48,33 +48,33 @@
   "Testimonials": [
     {
       "img": "img/testimonials/01.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
+      "text": "\"PrepXpert made my placement journey smooth! The structured tests and real-time feedback helped me identify my weak areas and improve efficiently.\"",
+      "name": "Amit R., Software Engineer"
     },
     {
       "img": "img/testimonials/02.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
+      "text": "\"A must-have platform for placement preparation! The structured mock tests and insights into performance helped me crack multiple job interviews.\"",
+      "name": "Shiva G., Business Analyst"
     },
     {
       "img": "img/testimonials/03.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
+      "text": "\"PrepXpert’s personalized approach to test preparation is outstanding. It guided me step by step, making learning effective and stress-free.\"",
+      "name": "Rahul K., Web Developer"
     },
     {
       "img": "img/testimonials/04.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
+      "text": "\"The combination of aptitude, technical, and communication tests is exactly what I needed to get job-ready. Highly recommended!\"",
+      "name": "Priya M., UI/UX Designer"
     },
     {
       "img": "img/testimonials/05.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "John Doe"
+      "text": "\"I struggled with interview preparation until I found PrepXpert. Their tests and detailed analysis helped me land my first job!\"",
+      "name": "Varun T., Cloud Engineer"
     },
     {
       "img": "img/testimonials/06.jpg",
-      "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-      "name": "Johnathan Doe"
+      "text": "\"I loved the real-world test simulations. The platform gave me the confidence to crack my technical and aptitude rounds with ease!\"",
+      "name": "Neha S., Data Analyst"
     }
   ],
   "Contact": {
@@ -89,23 +89,23 @@
   "Features": [
     {
       "icon": "fa fa-comments-o",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Recruiter-Trusted Methodology",
+      "text": "Designed with insights from hiring professionals to meet industry expectations."
     },
     {
       "icon": "fa fa-bullhorn",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Comprehensive Evaluation",
+      "text": "Beyond test scores, we analyze performance trends to help you improve."
     },
     {
       "icon": "fa fa-group",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Confidence Boosting Approach",
+      "text": "Engage in real-world problem-solving to enhance logical thinking and decision-making."
     },
     {
       "icon": "fa fa-magic",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Career-Ready Preparation",
+      "text": "Beyond assessments, we help you develop a strategic approach to job applications and interviews."
     }
   ]
 }

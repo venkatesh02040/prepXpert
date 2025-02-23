@@ -1,6 +1,7 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import React from "react";
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 const initialState = {
   name: "",
@@ -124,27 +125,19 @@ export const Contact = (props) => {
           </div>
           <div className="col-md-12">
             <div className="row">
-              <div className="social" style={{ display: "flex", flexWrap: "wrap",alignItems:"center",justifyContent:"space-around" }}>
-                <div>
-                  <a href={props.data ? props.data.facebook : "/"}>
-                    <i className="fa fa-facebook"></i>
-                  </a>
-                </div>
-                <div>
-                  <a href={props.data ? props.data.instagram : "/"}>
-                    <i className="fa fa-instagram"></i>
-                  </a>
-                </div>
-                <div>
-                  <a href={props.data ? props.data.twitter : "/"}>
-                    <i className="fa fa-twitter"></i>
-                  </a>
-                </div>
-                <div>
-                  <a href={props.data ? props.data.linkedin : "/"}>
-                    <i className="fa fa-linkedin"></i>
-                  </a>
-                </div>
+              <div className="social-media-icons">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                  <FaFacebook className="icon" />
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <FaInstagram className="icon" />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                  <FaTwitter className="icon" />
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin className="icon" />
+                </a>
               </div>
             </div>
           </div>

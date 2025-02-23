@@ -14,7 +14,7 @@ export const Services = (props) => {
         <div className="row" id="sd" style={{display:"flex",flexWrap:"wrap"}}>
           {props.data
             ? props.data.map((d, i) => (
-              <div key={`${d.name}-${i}`} className="col-md-4">
+              <div key={`${d.name}-${i}`} className="col-md-4" id="sc" style={{cursor:"pointer"}}>
                 {" "}
                 <i className={d.icon}></i>
                 <div className="service-desc">

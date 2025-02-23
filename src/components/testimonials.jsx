@@ -10,7 +10,7 @@ export const Testimonials = (props) => {
         <div className="row" style={{display:"flex",flexWrap:"wrap"}}>
           {props.data
             ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className="col-md-4">
+                <div key={`${d.name}-${i}`} className="col-md-4" id="lc" style={{cursor:"pointer"}}>
                   <div className="testimonial">
                     <div className="testimonial-image">
                       {" "}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Features = (props) => {
   return (
@@ -11,7 +12,6 @@ export const Features = (props) => {
           {props.data
             ? props.data.map((d, i) => (
               <div key={`${d.title}-${i}`} className="col-xs-6 col-md-3" id="lc" style={{ cursor: "pointer" }}>
-                {" "}
                 <i className={d.icon}></i>
                 <h3>{d.title}</h3>
                 <p>{d.text}</p>
@@ -20,12 +20,9 @@ export const Features = (props) => {
             : "Loading..."}
         </div>
         <br />
-        <a
-          href="#features"
-          className="btn btn-custom btn-lg page-scroll"
-        >
+        <Link to="/start-your-journey" className="btn btn-custom btn-lg page-scroll">
           Start Your Journey
-        </a>{" "}
+        </Link>
       </div>
     </div>
   );

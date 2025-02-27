@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
 import { Features } from "./components/features";
@@ -17,36 +17,54 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
   speedAsDuration: true,
 });
 
-const App = () => {
-  const [landingPageData, setLandingPageData] = useState({});
+const LoadingScreen = ({ loading }) => {
+  return loading ? (
+    <div className="loading-overlay">
+      <div className="spinner"></div>
+    </div>
+  ) : null;
+};
+
+const AppContent = () => {
+  const location = useLocation();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLandingPageData(JsonData);
-  }, []);
+    setLoading(true);
+    const timeout = setTimeout(() => setLoading(false), 1000); // Show loader for 1 second
+    return () => clearTimeout(timeout);
+  }, [location.pathname]); // Triggers on every route change
 
   return (
-    <Router future={{ v7_startTransition: true }}>
+    <>
+      <LoadingScreen loading={loading} />
       <Routes>
         <Route
           path="/"
           element={
             <>
               <Navigation />
-              <Header data={landingPageData.Header} />
-              <About data={landingPageData.About} />
-              <Services data={landingPageData.Services} />
-              <Features data={landingPageData.Features} />
-              <Testimonials data={landingPageData.Testimonials} />
-              <Contact data={landingPageData.Contact} />
+              <Header data={JsonData.Header} />
+              <About data={JsonData.About} />
+              <Services data={JsonData.Services} />
+              <Features data={JsonData.Features} />
+              <Testimonials data={JsonData.Testimonials} />
+              <Contact data={JsonData.Contact} />
             </>
           }
         />
         <Route path="/start-your-journey" element={<StartYourJourney />} />
       </Routes>
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 };
 
 export default App;
-
-

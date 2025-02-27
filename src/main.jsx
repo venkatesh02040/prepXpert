@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import StartYourJourney from './components/StartYourJourney/StartYourJourney';
+import QuizApp from './components/QuizApp/QuizApp';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <QuizApp />
     {/* <StartYourJourney/> */}
   </React.StrictMode>,
   document.getElementById('root')

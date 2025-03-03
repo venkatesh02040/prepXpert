@@ -1,8 +1,12 @@
 import React from 'react'
+import "./FinishScreen.css";
 
-const FinishScreen = () => {
+const FinishScreen = ({dispatch,points,maxPossiblePoints}) => {
   return (
-    <div>FinishScreen</div>
+    <div className='finish_screen'>
+      <p>Your Score is : {points} / {maxPossiblePoints}</p>
+      <button className='btn' onClick={()=> dispatch({type : "restart"})}>Restart</button>
+    </div>
   )
 }
 

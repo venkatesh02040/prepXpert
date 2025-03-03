@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import "./App.css"; 
 // import StartYourJourney from './components/StartYourJourney/StartYourJourney';
-import QuizApp from './components/QuizApp/QuizApp';
+// import QuizApp from './components/QuizApp/QuizApp'
+
 
 ReactDOM.render(
   <React.StrictMode>

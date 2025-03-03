@@ -1,17 +1,16 @@
 import React, { useEffect } from "react";
 import { Form, Input, Button, notification } from "antd";
-import "./StartYourJourney.css"; // Import CSS
+import "./StartYourJourney.css"; 
 
 const StartYourJourney = () => {
-  const [form] = Form.useForm(); // Ant Design Form instance
+  const [form] = Form.useForm(); 
 
-  // Function to show notifications
   const showNotification = (type, message, description) => {
     notification[type]({
       message,
       description,
-      placement: "topRight", // Positioning the notification
-      duration: 3, // Auto-close after 3 seconds
+      placement: "topRight",
+      duration: 3,
     });
   };
 

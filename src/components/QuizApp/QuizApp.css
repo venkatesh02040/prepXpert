@@ -1,41 +1,46 @@
-*{
+/* Global Styles */
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background: linear-gradient(to right, #6372ff 0%, #292727e2 100%);
     color: white !important;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 90vh;
-    font-family: Rubik,sans-serif;
+    font-family: Rubik, sans-serif;
 }
 
-.container{
+/* Container */
+.container {
     width: 780px;
     background-color: #6372ff;
     border-radius: 5px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.quiz_wrapper{
+/* Quiz Wrapper */
+.quiz_wrapper {
     padding: 2rem;
     color: #fff;
     text-align: center;
 }
 
-.quiz_wrapper h3{
+.quiz_wrapper h3 {
     font-weight: lighter;
     font-size: 4rem;
 }
 
-.quiz_wrapper h2{
+.quiz_wrapper h2 {
     font-size: 3rem;
 }
 
-.btn{
+/* Buttons */
+.btn {
     outline: none;
     border: none;
     background-color: antiquewhite;
@@ -45,9 +50,101 @@ body{
     font-size: 1rem;
     cursor: pointer;
     border-radius: 2px;
+    transition: background 0.3s ease-in-out;
 }
 
-.quiz_wrapper p{
-    margin: 1rem 0;
+.btn:hover {
+    background-color: #6372ff;
+    color:#fff;
+    border:1px solid #fff;
 }
 
+/* Category Selection */
+.category-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.category-selection h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.category-selection button {
+    background: antiquewhite;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.category-selection button:hover {
+    background-color: #6372ff;
+    color:#fff;
+    border:1px solid #fff;
+}
+
+/* Quiz Question Box */
+.quiz-box {
+    background: #ffffff1a;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Options */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.options button {
+    background: #ffffff1a;
+    border: 1px solid white;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    color: white;
+}
+
+.options button:hover {
+    background: #6372ff;
+}
+
+/* Timer */
+.timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .category-selection button {
+        width: 100%;
+    }
+
+    .quiz_wrapper h3 {
+        font-size: 3rem;
+    }
+
+    .quiz_wrapper h2 {
+        font-size: 2rem;
+    }
+}

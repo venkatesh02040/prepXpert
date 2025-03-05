@@ -18,13 +18,24 @@ const StartYourJourney = () => {
     showNotification("info", "Welcome!", "Welcome to PrepXpert 🎉");
   }, []);
 
-  const onFinish = (values) => {
-    console.log("Form Values:", values);
-    showNotification("success", "Login Successful!", "You have logged in successfully.");
+  const onFinish = async () => {
+    try {
+      const values = await form.validateFields(); // Validate first
+      console.log("Form Values:", values);
+      showNotification("success", "Login Successful!", "You have logged in successfully.");
+    } catch (error) {
+      showNotification("warning", "Incomplete Details", "Please enter your email and password to login.");
+    }
   };
 
-  const onSignUp = () => {
-    showNotification("success", "Sign Up Successful!", "Please log in now.");
+  const onSignUp = async () => {
+    try {
+      const values = await form.validateFields(); // Validate first
+      console.log("Sign Up Values:", values);
+      showNotification("success", "Sign Up Successful!", "Please log in now.");
+    } catch (error) {
+      showNotification("warning", "Incomplete Details", "Please fill in all required fields before signing up.");
+    }
   };
 
   return (
@@ -39,11 +50,12 @@ const StartYourJourney = () => {
         <h2 className="form-title">Welcome to PrepXpert</h2>
         <p>Sign up or log in to continue.</p>
 
-        <Form form={form} layout="vertical" onFinish={onFinish} style={{backgroundColor:""}}>
+        <Form form={form} layout="vertical">
           {/* Email Field */}
           <Form.Item
-            label="Email"
+            label="Email" 
             name="email"
+            required={false} // Removed asterisk
             rules={[
               { required: true, message: "Please enter your email!" },
               { type: "email", message: "Enter a valid email!" },
@@ -54,8 +66,9 @@ const StartYourJourney = () => {
 
           {/* Password Field */}
           <Form.Item
-            label="Password"
+            label="Password" 
             name="password"
+            required={false} // Removed asterisk
             rules={[
               { required: true, message: "Please enter your password!" },
               { min: 6, message: "Password must be at least 6 characters!" },
@@ -73,7 +86,7 @@ const StartYourJourney = () => {
 
           {/* Login Button */}
           <Form.Item>
-            <Button type="default" block htmlType="submit">
+            <Button type="default" block onClick={onFinish}>
               Login
             </Button>
           </Form.Item>
@@ -84,7 +97,3 @@ const StartYourJourney = () => {
 };
 
 export default StartYourJourney;
-
-
-
-

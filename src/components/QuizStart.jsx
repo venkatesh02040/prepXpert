@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import "./QuizStart.css";
 import FooterContent from './FooterContent';
 
 const QuizStart = ({ dispatch, questions, totalQuestions, index, answer, timeLeft, totalTimeLeft }) => {
 
-    const hasAnswer = answer !== null;
+    // Check if time is up for the current question
+    const isTimeUp = timeLeft <= 0;
 
     // Convert seconds into hh:mm:ss format
     const formatTime = (time) => {
@@ -15,24 +16,23 @@ const QuizStart = ({ dispatch, questions, totalQuestions, index, answer, timeLef
     };
 
     return (
-        <div className='quiz'>
-            <div className='quiz_header'>
+        <div className='quizapp-container'>
+            <div className='quizapp-header'>
                 <h2>{questions.question}</h2>
-                {/* 🕒 Total Quiz Timer (Decreasing for whole quiz) */}
-                <p className="timer total-time">Total Time Left: {formatTime(totalTimeLeft)}</p>
-                {/* ⏳ Per Question Timer (30 sec per question) */}
-                <p className="timer question-time">Question Time Left: {formatTime(timeLeft)}</p>
+                <p className="quizapp-timer total-time">Total Time Left: {formatTime(totalTimeLeft)}</p>
+                <p className="quizapp-timer question-time">Question Time Left: {formatTime(timeLeft)}</p>
             </div>
-            <div className='quiz_body'>
+            <ul className='quizapp-body'>
                 {questions.options.map((option, idx) => (
-                    <li key={option} 
-                        onClick={() => dispatch({ type: "newAnswer", payload: idx })}
-                        className={`${hasAnswer ? (idx === questions.correctOption ? "correct" : "wrong") : ""}`}>
+                    <li key={option}
+                        onClick={() => !isTimeUp && dispatch({ type: "newAnswer", payload: idx })} 
+                        className={`quizapp-option ${isTimeUp ? "disabled" : ""} ${answer === idx ? "selected" : ""}`}
+                    >
                         {option}
                     </li>
                 ))}
-            </div>
-            <div className="quiz_footer">
+            </ul>
+            <div className="quizapp-footer">
                 <p>Number of questions: {index}/{totalQuestions}</p>
                 <FooterContent dispatch={dispatch} index={index} totalQuestions={totalQuestions} />
             </div>

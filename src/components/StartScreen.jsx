@@ -1,4 +1,5 @@
 import React from 'react'
+import "./StartScreen.css";
 
 const StartScreen = ({ dispatch, totalQuestions, maxPossiblePoints }) => {
   return (

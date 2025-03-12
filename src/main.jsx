@@ -1,19 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-// import App from './App';
+import { createRoot } from 'react-dom/client'; 
+import App from './App';
 import * as serviceWorker from './serviceWorker';
-import "./App.css"; 
+import "./App.css";
 // import StartYourJourney from './components/StartYourJourney/StartYourJourney';
-import QuizApp from './components/QuizApp/QuizApp'
+// import QuizApp from "./Pages/QuizApp/QuizApp";
 
-
-ReactDOM.render(
-  <React.StrictMode>
-    {/* <App /> */}
-    <QuizApp />
-    {/* <StartYourJourney/> */}
-  </React.StrictMode>,
-  document.getElementById('root')
+const root = createRoot(document.getElementById('root')); // Create a root.
+root.render( // Use the root to render your app
+  // <React.StrictMode>
+    <App />
+    // <QuizApp/>
+  // </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change

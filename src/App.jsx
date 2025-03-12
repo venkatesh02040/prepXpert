@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
 import { Features } from "./components/features";
@@ -8,9 +8,16 @@ import { Services } from "./components/services";
 import { Testimonials } from "./components/testimonials";
 import { Contact } from "./components/contact";
 import StartYourJourney from "./components/StartYourJourney/StartYourJourney";
+import QuizApp from "./Pages/QuizApp/QuizApp";
+import DashboardLayout from "./components/Dashboard/DashboardLayout"; // New Dashboard Component
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import ScoreAnalytics from "./pages/ScoreAnalytics";
+import Settings from "./pages/Settings";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
+import "antd/dist/reset.css";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -31,14 +38,15 @@ const AppContent = () => {
 
   useEffect(() => {
     setLoading(true);
-    const timeout = setTimeout(() => setLoading(false), 1000); // Show loader for 1 second
+    const timeout = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timeout);
-  }, [location.pathname]); // Triggers on every route change
+  }, [location.pathname]);
 
   return (
     <>
       <LoadingScreen loading={loading} />
       <Routes>
+        {/* Landing Page Routes */}
         <Route
           path="/"
           element={
@@ -54,6 +62,21 @@ const AppContent = () => {
           }
         />
         <Route path="/start-your-journey" element={<StartYourJourney />} />
+
+        {/* Dashboard Routes */}
+        <Route path="/dashboard/*" element={<DashboardLayout />}>
+          <Route index element={<Navigate to="home" />} />
+          <Route path="home" element={<Home />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="score-analytics" element={<ScoreAnalytics />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+
+        {/* Assessment Route with Dynamic Username */}
+        <Route path="/assessment/:username" element={<QuizApp />} />
+
+        {/* Default Redirect */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );

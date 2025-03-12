@@ -1,9 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Input, Button, notification } from "antd";
-import "./StartYourJourney.css"; 
+import { useNavigate } from "react-router-dom"; // For navigation
+import "./StartYourJourney.css";
+
+const API_URL = "https://new-quiz-repo.onrender.com/users"; // JSON Server endpoint
 
 const StartYourJourney = () => {
-  const [form] = Form.useForm(); 
+  const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
+  const [loginLoading, setLoginLoading] = useState(false);
+  const navigate = useNavigate(); // For redirection
 
   const showNotification = (type, message, description) => {
     notification[type]({
@@ -18,44 +24,104 @@ const StartYourJourney = () => {
     showNotification("info", "Welcome!", "Welcome to PrepXpert 🎉");
   }, []);
 
-  const onFinish = async () => {
+  // **Signup Logic**
+  const onSignUp = async () => {
     try {
-      const values = await form.validateFields(); // Validate first
-      console.log("Form Values:", values);
-      showNotification("success", "Login Successful!", "You have logged in successfully.");
+      const values = await form.validateFields();
+      setLoading(true);
+
+      // Check if user already exists
+      const response = await fetch(`${API_URL}?email=${values.email}`);
+      const existingUsers = await response.json();
+
+      if (existingUsers.length > 0) {
+        showNotification("error", "User Exists", "Email is already registered. Please log in.");
+      } else {
+        const newUser = {
+          name: values.name,
+          email: values.email,
+          password: values.password,
+          communication_score: 0,
+          aptitude_score: 0,
+          technical_score: 0,
+          overall_score: 0,
+        };
+
+        const addUserResponse = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newUser),
+        });
+
+        if (addUserResponse.ok) {
+          showNotification("success", "Sign Up Successful!", "Please log in now.");
+          form.resetFields();
+        } else {
+          showNotification("error", "Sign Up Failed", "Something went wrong. Please try again.");
+        }
+      }
     } catch (error) {
-      showNotification("warning", "Incomplete Details", "Please enter your email and password to login.");
+      showNotification("warning", "Incomplete Details", "Please fill in all required fields before signing up.");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const onSignUp = async () => {
+  // **Login Logic**
+  const onLogin = async () => {
     try {
-      const values = await form.validateFields(); // Validate first
-      console.log("Sign Up Values:", values);
-      showNotification("success", "Sign Up Successful!", "Please log in now.");
+      const values = await form.validateFields(["email", "password"]);
+      setLoginLoading(true);
+
+      // Check if user exists
+      const response = await fetch(`${API_URL}?email=${values.email}`);
+      const users = await response.json();
+
+      if (users.length === 0) {
+        showNotification("error", "User Not Found", "No account found with this email. Please sign up.");
+      } else {
+        const user = users[0];
+        if (user.password === values.password) {
+          // Store user details in localStorage
+          localStorage.setItem("user", JSON.stringify(user));
+
+          showNotification("success", "Login Successful!", "Welcome back to PrepXpert.");
+          navigate("/dashboard"); // Redirect to Dashboard
+        } else {
+          showNotification("error", "Incorrect Password", "Please enter the correct password.");
+        }
+      }
     } catch (error) {
-      showNotification("warning", "Incomplete Details", "Please fill in all required fields before signing up.");
+      showNotification("warning", "Incomplete Details", "Please enter your email and password.");
+    } finally {
+      setLoginLoading(false);
     }
   };
 
   return (
     <div className="start-your-journey">
-      {/* Left Side - Image */}
       <div className="image-container">
         <img src="/img/pimgL.jpeg" alt="Start Your Journey" className="journey-image" />
       </div>
 
-      {/* Right Side - Login/Signup Form */}
       <div className="form-container">
         <h2 className="form-title">Welcome to PrepXpert</h2>
         <p>Sign up or log in to continue.</p>
 
-        <Form form={form} layout="vertical">
-          {/* Email Field */}
+        <Form form={form} layout="vertical" requiredMark={false}>
+          {/* Full Name (Signup Only) */}
           <Form.Item
-            label="Email" 
+            label="Full Name"
+            name="name"
+            rules={[{ required: true, message: "Please enter your full name!" }]}
+          >
+            <Input placeholder="Enter your full name" />
+          </Form.Item>
+
+          {/* Email */}
+          <Form.Item
+            label="Email"
             name="email"
-            required={false} // Removed asterisk
             rules={[
               { required: true, message: "Please enter your email!" },
               { type: "email", message: "Enter a valid email!" },
@@ -64,11 +130,10 @@ const StartYourJourney = () => {
             <Input placeholder="Enter your email" />
           </Form.Item>
 
-          {/* Password Field */}
+          {/* Password */}
           <Form.Item
-            label="Password" 
+            label="Password"
             name="password"
-            required={false} // Removed asterisk
             rules={[
               { required: true, message: "Please enter your password!" },
               { min: 6, message: "Password must be at least 6 characters!" },
@@ -77,16 +142,16 @@ const StartYourJourney = () => {
             <Input.Password placeholder="Enter your password" />
           </Form.Item>
 
-          {/* Sign Up Button */}
+          {/* Signup Button */}
           <Form.Item>
-            <Button type="primary" block onClick={onSignUp}>
+            <Button type="primary" block onClick={onSignUp} loading={loading}>
               Sign Up
             </Button>
           </Form.Item>
 
           {/* Login Button */}
           <Form.Item>
-            <Button type="default" block onClick={onFinish}>
+            <Button type="default" block onClick={onLogin} loading={loginLoading}>
               Login
             </Button>
           </Form.Item>

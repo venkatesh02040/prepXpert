@@ -589,17 +589,3 @@ label {
     }
 }
 
-/* @media (max-width: 400px) {
-  #about p,#services p,#features p,#testimonials p,#contact p{
-    font-size: 0.8rem;
-  }
-  #about h2,#services h2,#features h2,#testimonials h2,#contact h2{
-    font-size: 2rem;
-  }
-  #about h3,#services h3,#features h3,#testimonials h3,#contact h3{
-    font-size: 1.5rem;
-  }
-  #header,#about,#services,#features,#testimonials,#contact{
-    width: 100%;
-  }
-} */

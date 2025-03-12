@@ -5,7 +5,7 @@ const FinishScreen = ({ scores, dispatch }) => {
     return (
         <div className="finish-container">
             <h2>Quiz Completed! 🎉</h2>
-            <div className="score-section">
+            {/* <div className="score-section">
                 <p>📢 Communication Score: <span>{scores.communication}</span></p>
                 <p>📊 Aptitude Score: <span>{scores.aptitude}</span></p>
                 <p>💻 Technical Score: <span>{scores.technical}</span></p>
@@ -18,7 +18,7 @@ const FinishScreen = ({ scores, dispatch }) => {
                 <button className="btn dashboard-btn" onClick={() => window.location.href = "/dashboard"}>
                     Go to Dashboard 📊
                 </button>
-            </div>
+            </div> */}
         </div>
     );
 };

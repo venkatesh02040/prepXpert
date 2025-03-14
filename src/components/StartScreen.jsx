@@ -8,7 +8,7 @@ const StartScreen = ({ dispatch, totalQuestions, maxPossiblePoints }) => {
       <h2>PrepXpert Assessment</h2>
       <p>Number of questions: {totalQuestions || "Loading..."}</p>
       <p>Total points: {maxPossiblePoints || "Calculating..."}</p>
-      <button className='btn' onClick={() => dispatch({ type: "active" })}>
+      <button className='s-btn' onClick={() => dispatch({ type: "active" })}>
         Let's Start the Test
       </button>
     </div>

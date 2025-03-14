@@ -9,6 +9,7 @@ const StartYourJourney = () => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
+  const [guestLoading, setGuestLoading] = useState(false);
   const navigate = useNavigate(); // For redirection
 
   const showNotification = (type, message, description) => {
@@ -98,6 +99,32 @@ const StartYourJourney = () => {
     }
   };
 
+  // **Guest Login Logic**
+  const onGuestLogin = async () => {
+    try {
+      setGuestLoading(true);
+
+      const response = await fetch(`${API_URL}?email=guest@gmail.com`);
+      const users = await response.json();
+
+      if (users.length > 0) {
+        const guestUser = users[0];
+
+        // Store guest user details in localStorage
+        localStorage.setItem("user", JSON.stringify(guestUser));
+
+        showNotification("success", "Logged in as Guest", "You are logged in as a guest.");
+        navigate("/dashboard"); // Redirect to Dashboard
+      } else {
+        showNotification("error", "Guest User Not Found", "Guest login failed. Try again.");
+      }
+    } catch (error) {
+      showNotification("error", "Network Error", "Failed to login as guest. Please try again.");
+    } finally {
+      setGuestLoading(false);
+    }
+  };
+
   return (
     <div className="start-your-journey">
       <div className="image-container">
@@ -153,6 +180,13 @@ const StartYourJourney = () => {
           <Form.Item>
             <Button type="default" block onClick={onLogin} loading={loginLoading}>
               Login
+            </Button>
+          </Form.Item>
+
+          {/* Guest Login Button */}
+          <Form.Item>
+            <Button type="default" block onClick={onGuestLogin} loading={guestLoading}>
+              Login as Guest
             </Button>
           </Form.Item>
         </Form>

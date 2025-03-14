@@ -10,10 +10,10 @@ import { Contact } from "./components/contact";
 import StartYourJourney from "./components/StartYourJourney/StartYourJourney";
 import QuizApp from "./Pages/QuizApp/QuizApp";
 import DashboardLayout from "./components/Dashboard/DashboardLayout"; // New Dashboard Component
-import Home from "./pages/Home";
+import Home from "./Pages/Home";
 import Profile from "./pages/Profile";
 import ScoreAnalytics from "./pages/ScoreAnalytics";
-import Settings from "./pages/Settings";
+// import Settings from "./pages/Settings";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
@@ -69,7 +69,8 @@ const AppContent = () => {
           <Route path="home" element={<Home />} />
           <Route path="profile" element={<Profile />} />
           <Route path="score-analytics" element={<ScoreAnalytics />} />
-          <Route path="settings" element={<Settings />} />
+          <Route path="*" element={<Navigate to="/dashboard" />} />
+          {/* <Route path="settings" element={<Settings />} /> */}
         </Route>
 
         {/* Assessment Route with Dynamic Username */}

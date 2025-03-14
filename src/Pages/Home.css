@@ -1,160 +1,148 @@
-/* Global Styles */
+/* General Styles */
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    background-color: #f5f7ff; /* Light background */
-    color: #333; /* Text color */
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  /* Banner Section */
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  padding: 1.2rem;
+  background-color: #f8f9fa;
+}
+
+/* Banner Section */
+.banner {
+  width: 100%;
+  height: 400px;
+  background: url("/img/coding-img.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  color: #fff;
+}
+
+.banner-content h2{
+  color: #fff !important;
+}
+
+/* Welcome Message */
+.welcome-message {
+  margin-top: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Start Assessment Button */
+.start-assessment-btn {
+  background-color: #6372ff;
+  color: #333;
+  font-weight: bolder;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out;
+}
+
+.start-assessment-btn:hover {
+  background-color: #6372ff;
+  color: #fff;
+}
+
+/* --- Responsive Design --- */
+
+/* Large Screens (1500px and above) */
+@media (min-width: 1500px) {
   .banner {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    height: 500px;
   }
-  
-  .banner-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
   .banner-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(99, 114, 255, 0.85); /* Semi-transparent brand color */
-    color: #fff;
-    padding: 20px 30px;
-    border-radius: 8px;
-    text-align: center;
-    backdrop-filter: blur(5px);
+    font-size: 2rem;
   }
-  
-  .banner-content h2 {
-    margin: 0;
-    font-size: 28px;
-    font-weight: 600;
+}
+
+/* Laptops & Tablets (1200px - 1499px) */
+@media (max-width: 1499px) {
+  .banner {
+    height: 450px;
   }
-  
-  .banner-content p {
-    margin-top: 8px;
-    font-size: 16px;
-    font-weight: 400;
+  .banner-content {
+    font-size: 1.7rem;
   }
-  
-  /* Welcome Message */
-  h2 {
-    font-size: 26px;
-    color: #333; /* Brand primary color */
-    font-weight: 600;
-    margin-bottom: 20px;
+}
+
+/* Tablets (768px - 1199px) */
+@media (max-width: 1199px) {
+  .banner {
+    height: 350px;
   }
-  
-  /* Start Assessment Button */
+  .banner-content {
+    font-size: 1.5rem;
+  }
+  .welcome-message {
+    font-size: 1.8rem;
+  }
+}
+
+/* Small Tablets & Large Phones (600px - 767px) */
+@media (max-width: 767px) {
+  .banner {
+    height: 300px;
+  }
+  .banner-content {
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
   .start-assessment-btn {
-    background-color: #6372ff; /* Primary color */
-    color: white;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(99, 114, 255, 0.3);
+    font-size: 1rem;
+    padding: 10px 20px;
   }
-  
-  .start-assessment-btn:hover {
-    background-color: #4f5de6; /* Darker shade */
+}
+
+/* Mobile Phones (320px - 599px) */
+@media (max-width: 599px) {
+  .banner {
+    height: 250px;
   }
-  
-  /* Media Queries for Responsiveness */
-  @media (max-width: 1024px) {
-    .banner-content {
-      width: 80%;
-      padding: 15px 25px;
-    }
-  
-    .banner-content h2 {
-      font-size: 24px;
-    }
-  
-    .banner-content p {
-      font-size: 14px;
-    }
-  
-    h2 {
-      font-size: 24px;
-    }
-  
-    .start-assessment-btn {
-      font-size: 16px;
-      padding: 10px 20px;
-    }
+  /* .banner-content {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  } */
+
+  .banner-content p{
+    font-size: 1rem;
+    padding: 0.8rem;
   }
-  
-  @media (max-width: 768px) {
-    .banner-content {
-      width: 90%;
-      padding: 12px 20px;
-    }
-  
-    .banner-content h2 {
-      font-size: 22px;
-    }
-  
-    .banner-content p {
-      font-size: 13px;
-    }
-  
-    h2 {
-      font-size: 22px;
-    }
-  
-    .start-assessment-btn {
-      font-size: 15px;
-      padding: 10px 18px;
-    }
+
+  .banner-content h2{
+    font-size: 1.6rem;
+    padding: 0.8rem;
   }
-  
-  @media (max-width: 480px) {
-    .banner {
-      border-radius: 8px;
-    }
-  
-    .banner-content {
-      width: 95%;
-      padding: 10px 18px;
-    }
-  
-    .banner-content h2 {
-      font-size: 20px;
-    }
-  
-    .banner-content p {
-      font-size: 12px;
-    }
-  
-    h2 {
-      font-size: 20px;
-    }
-  
-    .start-assessment-btn {
-      font-size: 14px;
-      padding: 8px 16px;
-    }
+
+
+  .welcome-message {
+    font-size: 1.5rem;
   }
-  
+  .start-assessment-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

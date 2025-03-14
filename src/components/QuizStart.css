@@ -1,17 +1,5 @@
-/* Quiz App Container */
-.quizapp-container {
-    max-width: 700px;
-    margin: auto;
-    padding: 30px;
-    background: #fff;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-  }
-  
   /* Header */
-  .quizapp-header h2 {
+  .quizstart-header h2 {
     font-size: 1.4rem !important;
     color: #333;
     font-weight: 600;
@@ -19,7 +7,7 @@
   }
   
   /* Timer Styles */
-  .quizapp-timer {
+  .quizstart-timer {
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 10px;
@@ -40,12 +28,12 @@
   }
   
   /* Options List */
-  .quizapp-body {
+  .quizstart-body {
     list-style: none;
     padding: 0;
   }
   
-  .quizapp-option {
+  .quizstart-option {
     padding: 12px;
     margin: 8px 0;
     background: #f4f4f4;
@@ -57,24 +45,18 @@
     font-weight: 500;
   }
   
-  .quizapp-option:hover {
+  .quizstart-option:hover {
     background: #e0e0e0;
   }
   
   /* When user selects an option */
-  .quizapp-option.selected {
+  .quizstart-option.selected {
     background: #6372ff;
     color: white;
   }
-  
-  /* Disable pointer if time is up */
-  /* .disabled {
-    pointer-events: none;
-    opacity: 0.6;
-  } */
-  
+    
   /* Footer */
-  .quizapp-footer {
+  .quizstart-footer {
     margin-top: 20px;
     font-size: 14px;
     color: #555;
@@ -82,36 +64,36 @@
   
   /* Responsive */
   @media (max-width: 768px) {
-    .quizapp-container {
+    .quizstart-container {
       width: 90%;
       padding: 20px;
     }
   
-    .quizapp-header h2 {
+    .quizstart-header h2 {
       font-size: 20px;
     }
   
-    .quizapp-option {
+    .quizstart-option {
       font-size: 14px;
       padding: 10px;
     }
   }
   
   @media (max-width: 480px) {
-    .quizapp-container {
+    .quizstart-container {
       width: 95%;
       padding: 15px;
     }
   
-    .quizapp-header h2 {
+    .quizstart-header h2 {
       font-size: 18px;
     }
   
-    .quizapp-timer {
+    .quizstart-timer {
       font-size: 12px;
     }
   
-    .quizapp-option {
+    .quizstart-option {
       font-size: 13px;
       padding: 8px;
     }

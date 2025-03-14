@@ -68,9 +68,9 @@ const DashboardLayout = () => {
           <Menu.Item key="/dashboard/score-analytics" icon={<BarChartOutlined />}>
             <Link to="/dashboard/score-analytics">Score Analytics</Link>
           </Menu.Item>
-          <Menu.Item key="/dashboard/settings" icon={<SettingOutlined />}>
+          {/* <Menu.Item key="/dashboard/settings" icon={<SettingOutlined />}>
             <Link to="/dashboard/settings">Settings</Link>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu>
       </Sider>
 

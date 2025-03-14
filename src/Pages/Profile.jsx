@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Card, Typography, Row, Col } from "antd";
+import { Card, Typography, Row, Col, Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import "./Profile.css"; // Import external CSS for styling
 
 const { Title, Text } = Typography;
 
@@ -20,36 +22,38 @@ const Profile = () => {
   if (!user) return null;
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-      <Card style={{ width: 400, textAlign: "center", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}>
-        <Title level={3} style={{ marginBottom: 20 }}>👤 {user.name}</Title>
+    <div className="profile-container">
+      <Card className="profile-card">
+        {/* User Avatar */}
+        <Avatar size={80} icon={<UserOutlined />} className="profile-avatar" />
 
-        <Row gutter={[16, 16]}>
+        {/* User Details */}
+        <Title level={3} className="profile-name">{user.name}</Title>
+
+        <Row gutter={[16, 16]} className="profile-details">
           <Col span={24}>
-            <Text strong>Email:</Text>
-            <Text style={{ display: "block" }}>{user.email}</Text>
+            <Text className="pt" strong>Email:</Text>
+            <Text className="profile-text">{user.email}</Text>
           </Col>
 
           <Col span={24}>
-            <Text strong>Communication Score:</Text>
-            <Text style={{ display: "block" }}>{user.communication_score}</Text>
+            <Text className="pt" strong>Communication Score:</Text>
+            <Text className="profile-text">{user.communication_score}</Text>
           </Col>
 
           <Col span={24}>
-            <Text strong>Aptitude Score:</Text>
-            <Text style={{ display: "block" }}>{user.aptitude_score}</Text>
+            <Text className="pt" strong>Aptitude Score:</Text>
+            <Text className="profile-text">{user.aptitude_score}</Text>
           </Col>
 
           <Col span={24}>
-            <Text strong>Technical Score:</Text>
-            <Text style={{ display: "block" }}>{user.technical_score}</Text>
+            <Text className="pt" strong>Technical Score:</Text>
+            <Text className="profile-text">{user.technical_score}</Text>
           </Col>
 
           <Col span={24}>
-            <Text strong>Overall Score:</Text>
-            <Text style={{ display: "block", fontSize: "18px", fontWeight: "bold", color: "#1890ff" }}>
-              {user.overall_score}
-            </Text>
+            <Text className="pt" strong>Overall Score:</Text>
+            <Text className="profile-overall-score">{user.overall_score}</Text>
           </Col>
         </Row>
       </Card>

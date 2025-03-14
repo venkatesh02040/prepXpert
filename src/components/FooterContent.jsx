@@ -1,14 +1,15 @@
 import React from "react";
+import "./FooterContent.css";
 
 const FooterContent = ({ dispatch, totalQuestions, index }) => {
   return (
     <>
       {index < totalQuestions ? (
-        <button className="btn" onClick={() => dispatch({ type: "nextQuestions" })}>
+        <button className="f-btn" onClick={() => dispatch({ type: "nextQuestions" })}>
           Next
         </button>
       ) : (
-        <button className="btn" onClick={() => dispatch({ type: "finishScreen" })}>
+        <button className="f-btn" onClick={() => dispatch({ type: "finishScreen" })}>
           Finish
         </button>
       )}
